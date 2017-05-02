@@ -90,6 +90,8 @@ ENV/
 
 *.csv
 idea/
+.idea/
+.DS_Store
 
 *.pdf
 *.dot
