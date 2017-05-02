@@ -89,3 +89,7 @@ ENV/
 .ropeproject
 
 *.csv
+idea/
+
+*.pdf
+*.dot
