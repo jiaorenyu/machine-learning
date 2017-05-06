@@ -97,18 +97,18 @@ titanic_df['Age'].hist(bins=70, ax=axis2)
 titanic_df.drop("Cabin",axis=1,inplace=True)
 test_df.drop("Cabin",axis=1,inplace=True)
 
-# family
-titanic_df['Family'] =  titanic_df["Parch"] + titanic_df["SibSp"]
-titanic_df['Family'].loc[titanic_df['Family'] > 0] = 1
-titanic_df['Family'].loc[titanic_df['Family'] == 0] = 0
-
-test_df['Family'] =  test_df["Parch"] + test_df["SibSp"]
-test_df['Family'].loc[test_df['Family'] > 0] = 1
-test_df['Family'].loc[test_df['Family'] == 0] = 0
-
-# drop Parch & SibSp
-titanic_df = titanic_df.drop(['SibSp','Parch'], axis=1)
-test_df    = test_df.drop(['SibSp','Parch'], axis=1)
+# # family
+# titanic_df['Family'] =  titanic_df["Parch"] + titanic_df["SibSp"]
+# # titanic_df['Family'].loc[titanic_df['Family'] > 0] = 1
+# # titanic_df['Family'].loc[titanic_df['Family'] == 0] = 0
+#
+# test_df['Family'] =  test_df["Parch"] + test_df["SibSp"]
+# # test_df['Family'].loc[test_df['Family'] > 0] = 1
+# # test_df['Family'].loc[test_df['Family'] == 0] = 0
+#
+# # drop Parch & SibSp
+# titanic_df = titanic_df.drop(['SibSp','Parch'], axis=1)
+# test_df    = test_df.drop(['SibSp','Parch'], axis=1)
 
 
 # Sex
@@ -164,13 +164,15 @@ print(X_train, Y_train)
 
 # Random Forests
 
-random_forest = RandomForestClassifier(n_estimators=100, min_samples_leaf=2)
+random_forest = RandomForestClassifier(n_estimators=100)
 
 random_forest.fit(X_train, Y_train)
 
 Y_pred = random_forest.predict(X_test)
 
 score = random_forest.score(X_train, Y_train)
+
+
 
 # clf = tree.DecisionTreeClassifier(min_samples_leaf=2)
 # clf = clf.fit(X_train, Y_train)
